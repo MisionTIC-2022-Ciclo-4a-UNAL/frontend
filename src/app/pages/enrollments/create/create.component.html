@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header *ngIf="creationMode">
+                CREAR INSCRIPCION
+            </nb-card-header> 
+            <nb-card-header *ngIf="!creationMode">
+                ACTUALIZAR INSCRIPCION
+            </nb-card-header>           
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Estudiante</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Curso</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Anio</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Semestre</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" 
+                               [(ngModel)]="student.name" />
+                        <p *ngIf="sendingAttemp && student.name==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Nota Final</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class='form-control'
+                               [(ngModel)]="student.lastname" />
+                        <p *ngIf="sendingAttemp && student.lastname==''">Requerido</p>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">
+                        Crear
+                    </button>
+                    <button *ngIf="!creationMode" class="btn btn-primary btn-block" (click)="edit()">
+                        Actualizar
+                    </button>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
