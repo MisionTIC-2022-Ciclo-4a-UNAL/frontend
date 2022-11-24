@@ -13,7 +13,10 @@
                         <label>Estudiante</label>
                     </div>
                     <div class="col-lg-9">
-                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                        <select class="form-control" [(ngModel)]="enrollment.student._id" fullWidth>
+                            <option *ngFor="let student of students" [value]="student._id">{{student.name}} {{student.lastname}}</option>
+                        </select>
+                        <p *ngIf="sendingAttemp && enrollment.student==-1">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
@@ -21,7 +24,10 @@
                         <label>Curso</label>
                     </div>
                     <div class="col-lg-9">
-                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                        <select class="form-control" [(ngModel)]="enrollment.course._id" fullWidth>
+                            <option *ngFor="let course of courses" [value]="course._id">{{course.name}}</option>
+                        </select>
+                        <p *ngIf="sendingAttemp && enrollment.course==-1">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
@@ -29,7 +35,10 @@
                         <label>Anio</label>
                     </div>
                     <div class="col-lg-9">
-                        <p *ngIf="sendingAttemp && student.personal_id==''">Requerido</p>
+                        <select class="form-control" [(ngModel)]="enrollment.year" fullWidth>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                        <p *ngIf="sendingAttemp && enrollment.year==null">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
@@ -37,9 +46,9 @@
                         <label>Semestre</label>
                     </div>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" 
-                               [(ngModel)]="student.name" />
-                        <p *ngIf="sendingAttemp && student.name==''">Requerido</p>
+                        <input type="number" class="form-control" 
+                               [(ngModel)]="enrollment.semester" fullWidth />
+                        <p *ngIf="sendingAttemp && enrollment.semester==null">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
@@ -47,9 +56,9 @@
                         <label>Nota Final</label>
                     </div>
                     <div class="col-lg-9">
-                        <input type="text" class='form-control'
-                               [(ngModel)]="student.lastname" />
-                        <p *ngIf="sendingAttemp && student.lastname==''">Requerido</p>
+                        <input type="number" class='form-control'
+                               [(ngModel)]="enrollment.grade" fullWidth />
+                        <p *ngIf="sendingAttemp && enrollment.grade==null">Requerido</p>
                     </div>
                 </div>
                 <br />

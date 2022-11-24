@@ -10,9 +10,6 @@ import { StudentsService } from '../../../services/students.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  /**
-   * 
-   */
   creationMode: boolean = true;
   studentId: string = "";
   sendingAttemp: boolean = false;
@@ -39,7 +36,7 @@ export class CreateComponent implements OnInit {
     if(this.activatedRoute.snapshot.params.studentId){
       this.creationMode = false;
       this.studentId = this.activatedRoute.snapshot.params.studentId;
-      this.getEstudiante(this.studentId);
+      this.getStudient(this.studentId);
     }
     else
       this.creationMode = true;
@@ -49,7 +46,7 @@ export class CreateComponent implements OnInit {
    * 
    * @param id 
    */
-  getEstudiante(id: string): void {
+  getStudient(id: string): void {
     this.studentsService.getOne(id).subscribe(
       data => {
         this.student = data;
