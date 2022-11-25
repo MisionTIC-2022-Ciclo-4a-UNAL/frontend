@@ -1,5 +1,5 @@
 export class Rol {
-    id?: number;
+    idRol?: number;
     name?: string;
     description?: string;
     permissions?: [];

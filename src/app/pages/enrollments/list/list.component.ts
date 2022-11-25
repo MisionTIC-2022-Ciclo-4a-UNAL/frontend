@@ -24,7 +24,6 @@ export class ListComponent implements OnInit {
   list(): void{
     this.enrollmentsService.list().subscribe(
       data => {
-        console.log(data);
         this.enrollments = data;
       },
       error => {

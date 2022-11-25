@@ -36,6 +36,7 @@
                     </div>
                     <div class="col-lg-9">
                         <select class="form-control" [(ngModel)]="enrollment.year" fullWidth>
+                            <option value="" disabled selected>Seleccione un anio...</option>
                             <option *ngFor="let year of years" [value]="year">{{year}}</option>
                         </select>
                         <p *ngIf="sendingAttemp && enrollment.year==null">Requerido</p>

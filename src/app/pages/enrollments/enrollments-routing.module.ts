@@ -13,7 +13,7 @@ const routes: Routes = [
     component: CreateComponent,
   },
   {
-    path: 'actualizar/:idEnrollment',
+    path: 'actualizar/:enrollmentId',
     component: CreateComponent,
   },
 ];

@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
    * 
    */
   ngOnInit(): void {
-    this.getCourses();
+    this.getCourses()
     this.getStudents();
     if(this.activatedRoute.snapshot.params.enrollmentId){
       this.creationMode = false;
@@ -114,6 +114,7 @@ export class CreateComponent implements OnInit {
    */
   create(): void{
     if(this.validateMandatoryData){
+      console.log(this.enrollment);
       this.enrollmentsService.create(this.enrollment).subscribe(
         data => {
           Swal.fire(
@@ -149,6 +150,8 @@ export class CreateComponent implements OnInit {
   edit(): void{
     if(this.validateMandatoryData){
       delete this.enrollment._id;
+      console.log(this.enrollmentId);
+      console.log(this.enrollment);
       this.enrollmentsService.edit(this.enrollmentId, this.enrollment).subscribe(
         data => {
           Swal.fire(

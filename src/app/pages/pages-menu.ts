@@ -3,48 +3,45 @@ import { NbMenuItem } from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   // application menu
   {
-    title: 'SISTEMA ACADEMICO',
+    title: 'ACADEMICO',
     group: true,
   },
   {
     title: 'Estudiantes',
-    icon: 'home-outline',
+    icon: 'edit-2-outline',
     link: '/pages/estudiantes/listar',
+    home: true,
   },
   {
     title: 'Departamentos',
-    icon: 'home-outline',
+    icon: 'grid-outline',
     link: '/pages/departamentos/listar',
   },
   {
     title: 'Cursos',
-    icon: 'home-outline',
+    icon: 'map-outline',
     link: '/pages/cursos/listar',
   },
   {
     title: 'Inscripciones',
-    icon: 'home-outline',
+    icon: 'layout-outline',
     link: '/pages/inscripciones/listar',
   },
   {
     title: 'Reportes',
-    icon: 'layout-outline',
+    icon: 'pie-chart-outline',
     children: [
-      {
-        title: 'General',
-        link: '/pages/reportes/general',
-      },
       {
         title: 'Estudiantes',
         link: '/pages/reportes/estudiantes',
       },
       {
-        title: 'Departamentos',
-        link: '/pages/reportes/departamentos',
-      },
-      {
         title: 'Cursos',
         link: '/pages/reportes/cursos',
+      },
+      {
+        title: 'Departamentos',
+        link: '/pages/reportes/departamentos',
       },
     ],
   },
@@ -54,12 +51,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Usuarios',
-    icon: 'home-outline',
+    icon: 'browser-outline',
     link: '/pages/usuarios/listar',
   },
   {
     title: 'Roles',
-    icon: 'home-outline',
+    icon: 'lock-outline',
     link: '/pages/roles/listar',
   },
 ];
