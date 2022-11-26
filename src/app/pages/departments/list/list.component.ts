@@ -48,6 +48,7 @@ export class ListComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085D6',
       cancelButtonColor: '#D33',
+      cancelButtonText: 'Cancelar',
       confirmButtonText: 'Si, eliminar',
     }).then((result) => {
       if(result.isConfirmed){

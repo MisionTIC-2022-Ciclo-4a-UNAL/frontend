@@ -35,7 +35,7 @@ export class CreateComponent implements OnInit {
     if(this.activatedRoute.snapshot.params.departmentId){
       this.creationMode = false;
       this.departmentId = this.activatedRoute.snapshot.params.departmentId;
-      this.getStudient(this.departmentId);
+      this.getDepartment(this.departmentId);
     }
     else
       this.creationMode = true;
@@ -45,7 +45,7 @@ export class CreateComponent implements OnInit {
    * 
    * @param id 
    */
-  getStudient(id: string): void {
+  getDepartment(id: string): void {
     this.departmentsService.getOne(id).subscribe(
       data => {
         this.department = data;

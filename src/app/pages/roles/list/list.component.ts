@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Rol } from '../../../models/rol.model';
+import { RolesService } from '../../../services/roles.service';
 
 @Component({
   selector: 'ngx-list',
@@ -7,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  departments: Department[];
-  columnNames: string[] = ['Nombre', 'Opciones']
+  roles: Rol[];
+  columnNames: string[] = ['Nombre', 'Descripcion', 'Opciones']
 
-  constructor(private departmentsService: DepartmentsService,
+  constructor(private rolesService: RolesService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -18,9 +22,9 @@ export class ListComponent implements OnInit {
   }
 
   list(): void{
-    this.departmentsService.list().subscribe(
+    this.rolesService.list().subscribe(
       data => {
-        this.departments = data;
+        this.roles = data;
       },
       error => {
         console.log(error);
@@ -29,29 +33,30 @@ export class ListComponent implements OnInit {
   }
 
   create(): void{
-    this.router.navigate(["pages/departamentos/crear"]);
+    this.router.navigate(["pages/roles/crear"]);
   }
 
   edit(id: string): void{
-    this.router.navigate(["pages/departamentos/actualizar/"+id]);
+    this.router.navigate(["pages/roles/actualizar/"+id]);
   }
 
-  delete(id: string): void{
+  delete(id: number): void{
     Swal.fire({
-      title: 'Eliminar Departamento',
-      text: '¿Está seguro que quiere eliminar a el departamento?',
+      title: 'Eliminar Rol',
+      text: '¿Está seguro que quiere eliminar al rol?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085D6',
+      cancelButtonText: 'Cancelar',
       cancelButtonColor: '#D33',
       confirmButtonText: 'Si, eliminar',
     }).then((result) => {
       if(result.isConfirmed){
-        this.departmentsService.delete(id).subscribe(
+        this.rolesService.delete(id).subscribe(
           data => {
             Swal.fire(
               '¡Eliminado!',
-              'El departamento ha sido eliminado correctamente.',
+              'El rol ha sido eliminado correctamente.',
               'success'
             ),
             this.ngOnInit();

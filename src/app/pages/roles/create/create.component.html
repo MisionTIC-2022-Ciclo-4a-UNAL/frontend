@@ -2,10 +2,10 @@
     <div class="col-lg-12">
         <nb-card>
             <nb-card-header *ngIf="creationMode">
-                CREAR DEPARTAMENTO
+                CREAR ROL
             </nb-card-header>
             <nb-card-header *ngIf="!creationMode">
-                ACTUALIZAR DEPARTAMENTO
+                ACTUALIZAR ROL
             </nb-card-header>
             <nb-card-body>
                 <div class="row">
@@ -14,10 +14,21 @@
                     </div>
                     <div class="col-lg-9">
                         <input  type="text" class="form-control" 
-                                [(ngModel)]="department.name">
-                        <p *ngIf="sendingAttemp && department.name==''">Requerido</p>
+                                [(ngModel)]="rol.name">
+                        <p *ngIf="sendingAttemp && rol.name==''">Requerido</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Descripcion</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input  type="text" class="form-control" 
+                                [(ngModel)]="rol.description">
+                        <p *ngIf="sendingAttemp && rol.description==''">Requerido</p>
+                    </div>
+                </div>
+                
                 <br />
                 <div class="row">
                     <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">

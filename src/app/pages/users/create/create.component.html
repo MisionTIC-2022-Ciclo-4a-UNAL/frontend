@@ -23,7 +23,7 @@
                         <label>Correo Electrónico</label>
                     </div>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" [disabled]="!creationMode"
+                        <input type="email" class="form-control" [disabled]="!creationMode"
                                [(ngModel)]="user.email" fullWidth />
                         <p *ngIf="sendingAttemp && user.email==''">Requerido</p>
                     </div>

@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <nb-card>
             <nb-card-header>
-                ADMINISTRACIÓN DE DEPARTAMENTOS
+                ADMINISTRACIÓN DE ROLES
                 <button type="button" class="btn btn-success" (click)="create()">
                     <i class="fas fa-plus"></i>
                 </button>
@@ -11,16 +11,17 @@
                 <tr>
                     <th *ngFor="let column of columnNames">{{currentColumn}}</th>
                 </tr>
-                <ng-container *ngFor="let department of departments">
+                <ng-container *ngFor="let rol of roles">
                     <tr>
-                        <td>{{department.name}}</td>
+                        <td>{{rol.name}}</td>
+                        <td>{{rol.description}}</td>
                         <td>
                             <button type="button" class="btn btn-primary"
-                                    (click)="edit(department._id)">
+                                    (click)="edit(rol.idRol)">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button type="button" class="btn btn-danger"
-                                    (click)="delete(department._id)">
+                                    (click)="delete(rol.idRol)">
                                 <i class="fas fa-solid fa-trash"></i>
                             </button>
                         </td>
