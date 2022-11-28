@@ -40,11 +40,9 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getCourses();
+    this.getCourses();
     if(this.totalMode)
       this.getDataFull();
-    else
-      this.getDataOne();
   }
 
   getCourses(): void {
@@ -75,8 +73,14 @@ export class CoursesComponent implements OnInit {
     this.totalMode = false;
     this.reportsService.courseReport(this.courseId).subscribe(
       data => {
-        this.dataCourse = data;
-        console.log(data);
+        if(0 in data)
+          this.dataCourse = data[0];
+        else
+          this.dataCourse = {
+            name: "",
+            credits: null,
+            enrollments: null
+          };
       },
       error => {
         console.log(error);
@@ -84,9 +88,8 @@ export class CoursesComponent implements OnInit {
     );
   }
 
-  change(course: string): void {
-    console.log("changeeeeeeeeee " + course )
-    console.log(this.courseId)
+  change(): void {
+    console.log(this.courseId);
     if(this.courseId != "")
       this.getDataOne();
     this.ngOnInit();

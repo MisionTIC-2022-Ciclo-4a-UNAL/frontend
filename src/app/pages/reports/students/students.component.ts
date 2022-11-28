@@ -16,10 +16,12 @@ export class StudentsComponent implements OnInit {
   dataStudent: Object = {
     name: "",
     lastname: "",
+    personal_id: null,
     enrollments: null,
   };
   students: Student[]
   studentId: string = "";
+  data: Object;
   
 
   constructor(private reportsServices: ReportsService,
@@ -58,7 +60,7 @@ export class StudentsComponent implements OnInit {
     this.totalMode = false;
     this.reportsServices.studentReport(this.studentId).subscribe(
       data => {
-        this.dataStudent = data;
+        this.dataStudent = data[0];
       },
       error => {
         console.log(error);
@@ -67,8 +69,7 @@ export class StudentsComponent implements OnInit {
   }
 
   change(): void{
-    console.log("change--- "+this.studentId);
-    if(this.studentId != "")
+    if(this.studentId != "") 
       this.getDataOne();
     this.ngOnInit();
   }

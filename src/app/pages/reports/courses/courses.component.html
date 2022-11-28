@@ -3,7 +3,7 @@
         <nb-card>
             <nb-card-header>
                 REPORTE DE INSCRIPCIONES POR CURSO
-                <select class="form-control" (selectedChange)="change($event)" [(ngModel)]="courseId" fullWidth >
+                <select class="form-control" (change)="change()" [(ngModel)]="courseId" fullWidth >
                     <option *ngFor="let course of courses" [value]="course._id">{{course.name}}</option>
                 </select>
             </nb-card-header>
@@ -36,10 +36,12 @@
             <ng-container *ngIf="!totalMode">
                 <div class="row">
                     <div class="col-lg-12">
+                        <br />
+                        <span><b>Informacion del Curso</b></span><br />
                         <p>
-                            {{dataCourse.name}} <br />
-                            {{dataCourse.credits}} <br />
-                            {{dataCourse.enrollments}} <br />
+                            <i>Nombre</i>: {{dataCourse.name}} <br />
+                            <i>Creditos</i>: {{dataCourse.credits}} <br />
+                            <i>Inscripciones</i>: {{dataCourse.enrollments}} 
                         </p>
                     </div>
                 </div>
