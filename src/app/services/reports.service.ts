@@ -15,7 +15,7 @@ export class ReportsService {
    * @returns 
    */
   studentsReport() {
-    return this.http.get(`${environment.url_api_gateway}/reports/student_enrollments/all`);
+    return this.http.get(`${environment.url_api_gateway}/report/student_enrollments/all`);
   }
 
   /**
@@ -24,7 +24,7 @@ export class ReportsService {
    * @returns 
    */
   studentReport(studentId: string) {
-    return this.http.get(`${environment.url_api_gateway}/reports/student_enrollments/${studentId}`);
+    return this.http.get(`${environment.url_api_gateway}/report/student_enrollments/${studentId}`);
   }
 
   /**
@@ -32,7 +32,7 @@ export class ReportsService {
    * @returns 
    */
   studentsTopReport() {
-    return this.http.get(`${environment.url_api_gateway}/reports/students_top_enrollments`);
+    return this.http.get(`${environment.url_api_gateway}/report/students_top_enrollments`);
   }
 
   /**
@@ -40,7 +40,7 @@ export class ReportsService {
    * @returns 
    */
   coursesReport() {
-    return this.http.get(`${environment.url_api_gateway}/reports/course_enrollments/all`);
+    return this.http.get(`${environment.url_api_gateway}/report/course_enrollments/all`);
   }
 
   /**
@@ -49,7 +49,7 @@ export class ReportsService {
    * @returns 
    */
   courseReport(courseId: string) {
-    return this.http.get(`${environment.url_api_gateway}/reports/course_enrollments/${courseId}`);
+    return this.http.get(`${environment.url_api_gateway}/report/course_enrollments/${courseId}`);
   }
 
   /**
@@ -57,7 +57,7 @@ export class ReportsService {
    * @returns 
    */
   deparmentsReport(){
-    return this.http.get(`${environment.url_api_gateway}/reports/department_enrollments`);
+    return this.http.get(`${environment.url_api_gateway}/report/department_enrollments`);
   }
 
   /**
@@ -65,6 +65,6 @@ export class ReportsService {
    * @returns 
    */
   distributionReport(){
-    return this.http.get(`${environment.url_api_gateway}/reports/department_distribution`);
+    return this.http.get(`${environment.url_api_gateway}/report/department_distribution`);
   }
 }
